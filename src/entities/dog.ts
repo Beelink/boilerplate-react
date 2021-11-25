@@ -1,4 +1,4 @@
-type Dog = {
+interface Dog {
   id: string;
   image: string;
 };

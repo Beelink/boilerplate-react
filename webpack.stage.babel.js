@@ -40,7 +40,7 @@ module.exports = merge(common, {
     new webpack.DefinePlugin({
       __config: JSON.stringify({
         apiPrefix: "https://stage.kerenor4child.org/api/v1",
-        imagePrefix: "https://stage.kerenor4child.org/static"
+        imagePrefix: "https://stage.kerenor4child.org/static",
       }),
     }),
   ],
@@ -69,13 +69,12 @@ module.exports = merge(common, {
           {
             loader: "css-loader",
           },
-          { 
-            loader: 'scoped-css-loader' 
+          {
+            loader: "scoped-css-loader",
           },
           {
             loader: "sass-loader?sourceMap",
           },
-          
         ],
         exclude: [/node_modules/, /public/],
       },
@@ -92,8 +91,8 @@ module.exports = merge(common, {
           {
             loader: "css-loader",
           },
-          { 
-            loader: 'scoped-css-loader' 
+          {
+            loader: "scoped-css-loader",
           },
           {
             loader: "sass-loader?sourceMap",

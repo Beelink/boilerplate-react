@@ -7,8 +7,10 @@ import "@context/Lang/i18n";
 import { useTranslation } from "react-i18next";
 
 const defaultState: LangContextProps = {
-  lang: __config.lang.defaultLang,
   allLangs: __config.lang.allLangs,
+  lang: __config.lang.defaultLang,
+  setLang: () => {},
+  t: () => { return "" },
 };
 
 const LangContext = createContext<LangContextProps>(defaultState);
@@ -25,12 +27,6 @@ const LangContextProvider: FunctionComponent<RouteConfigComponentProps> = ({
     query.lang?.toString() || localStorage.getItem("lang") || __config.lang.defaultLang
   );
 
-  if (lang) {
-    if (!__config.lang.allLangs.includes(lang)) {
-      setLang(__config.lang.defaultLang);
-    }
-  }
-
   const _setLang = (lang: string) => {
     localStorage.setItem("lang", lang);
     i18n.changeLanguage(lang);
@@ -40,6 +36,14 @@ const LangContextProvider: FunctionComponent<RouteConfigComponentProps> = ({
   const _translate = (text: string) => {
     return t(text);
   }
+
+  useEffect(() => {
+    if (lang) {
+      if (!__config.lang.allLangs.includes(lang)) {
+        setLang(__config.lang.defaultLang);
+      }
+    }
+  }, [lang]);
 
   useEffect(() => {
     if (!query.lang || (query.lang && query.lang !== lang)) {

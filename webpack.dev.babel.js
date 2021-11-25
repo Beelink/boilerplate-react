@@ -59,10 +59,13 @@ module.exports = merge(common, {
       },
       // images
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|jpe?g|gif|jp2|webp)$/,
         use: [
           {
             loader: "file-loader",
+            options: {
+              name: "images/[name].[ext]",
+            },
           },
         ],
       },

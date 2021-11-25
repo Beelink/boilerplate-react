@@ -1,8 +1,8 @@
 interface LangContextProps {
-  setLang?: (lang: string) => void;
-  lang: string;
   allLangs: string[];
-  t?: (text: string) => string;
+  lang: string;
+  setLang: (lang: string) => void;
+  t: (text: string) => string;
 }
 
 export default LangContextProps;
