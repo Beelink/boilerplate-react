@@ -6,7 +6,12 @@ import LangContextProps from "@context/Lang/props";
 import "@context/Lang/i18n";
 import { useTranslation } from "react-i18next";
 
-const LangContext = createContext<LangContextProps | null>(null);
+const defaultState: LangContextProps = {
+  lang: __config.lang.defaultLang,
+  allLangs: __config.lang.allLangs,
+};
+
+const LangContext = createContext<LangContextProps>(defaultState);
 
 const LangContextProvider: FunctionComponent<RouteConfigComponentProps> = ({
   children,

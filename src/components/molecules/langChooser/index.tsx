@@ -3,16 +3,21 @@ import { LangContext } from "@context/Lang";
 import "./index.scoped.scss";
 
 const LangChooser: FunctionComponent = () => {
-  const langCtx = useContext(LangContext);
+  const { setLang } = useContext(LangContext);
   return (
     <div className="lang-chooser">
-      { __config.lang.allLangs.map((lang, langIndex) => {
+      {__config.lang.allLangs.map((lang, langIndex) => {
         return (
-          <button key={ langIndex } onClick={ () => {
-            langCtx?.setLang(lang)
-          }}>{ lang }</button>
-        )
-      }) }
+          <button
+            key={langIndex}
+            onClick={() => {
+              setLang(lang);
+            }}
+          >
+            {lang}
+          </button>
+        );
+      })}
     </div>
   );
 };
