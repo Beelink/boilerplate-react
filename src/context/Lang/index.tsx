@@ -3,6 +3,8 @@ import { withRouter } from "react-router";
 import { stringify, parse } from "qs";
 import { RouteConfigComponentProps } from "react-router-config";
 import LangContextProps from "@context/Lang/props";
+import "@context/Lang/i18n";
+import { useTranslation } from "react-i18next";
 
 const LangContext = createContext<LangContextProps | null>(null);
 
@@ -13,6 +15,7 @@ const LangContextProvider: FunctionComponent<RouteConfigComponentProps> = ({
 }) => {
   const query = parse(location.search, { ignoreQueryPrefix: true });
 
+  const { t, i18n } = useTranslation();
   const [lang, setLang] = useState(
     query.lang?.toString() || localStorage.getItem("lang") || __config.lang.defaultLang
   );
@@ -25,16 +28,13 @@ const LangContextProvider: FunctionComponent<RouteConfigComponentProps> = ({
 
   const _setLang = (lang: string) => {
     localStorage.setItem("lang", lang);
+    i18n.changeLanguage(lang);
     setLang(lang);
   };
 
-  function _getProperty<Context, K extends keyof Context>(obj: Context, key: K): Context[K] {
-    return obj[key];
-}
-
-  const _getStr = (langFile: object, lineIndex: number): string => {
-    return _getProperty(langFile, lineIndex);
-  };
+  const _translate = (text: string) => {
+    return t(text);
+  }
 
   useEffect(() => {
     if (!query.lang || (query.lang && query.lang !== lang)) {
@@ -52,18 +52,16 @@ const LangContextProvider: FunctionComponent<RouteConfigComponentProps> = ({
   }, [query, lang]);
 
   return (
-    <>
-      <LangContext.Provider
-        value={{
-          setLang: _setLang,
-          lang,
-          allLangs: __config.lang.allLangs,
-          getStr: _getStr,
-        }}
-      >
-        {children}
-      </LangContext.Provider>
-    </>
+    <LangContext.Provider
+      value={{
+        setLang: _setLang,
+        lang,
+        allLangs: __config.lang.allLangs,
+        t: _translate,
+      }}
+    >
+      {children}
+    </LangContext.Provider>
   );
 };
 

@@ -1,5 +1,4 @@
 import Dog from "@entities/dog";
-
 import {
   ADD_DOG,
   REMOVE_DOG_BY_ID,

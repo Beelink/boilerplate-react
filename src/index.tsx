@@ -1,4 +1,3 @@
-import React from "react";
 import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { renderRoutes } from "react-router-config";
@@ -8,7 +7,8 @@ import "./assets/scss/index.scss";
 
 render(
   <BrowserRouter>
-    <ScrollToTop>{renderRoutes(routes)}</ScrollToTop>
+    {/* <ScrollToTop></ScrollToTop> */}
+    {renderRoutes(routes)}
   </BrowserRouter>,
   document.getElementById("root")
 );

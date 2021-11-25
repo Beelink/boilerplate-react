@@ -1,9 +1,5 @@
 import dogsInitialState from "@store/dogs/dogs.initialState";
-
-import {
-  ADD_DOG,
-  REMOVE_DOG_BY_ID,
-} from "@store/dogs/dogs.actions";
+import { ADD_DOG, REMOVE_DOG_BY_ID } from "@store/dogs/dogs.actions";
 import DogsAction from "@store/dogs/dogs.actionTypes";
 import { DogsState } from "@store/types";
 

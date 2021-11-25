@@ -2,7 +2,7 @@ interface LangContextProps {
   setLang(lang: string): void;
   lang: string;
   allLangs: string[];
-  getStr(langFile: object, lineIndex: number): void;
+  t(text: string): string;
 }
 
 export default LangContextProps;

@@ -1,20 +1,17 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import Dog from "@entities/dog";
-import { v4 as uuid } from "uuid";
-
+import uniqid from "uniqid";
 interface DogResponse {
   message: string;
   status: string;
 }
 
-export const fetchRandomDog = async () => {
-  const response: DogResponse = await axios
-    .get<DogResponse>("https://dog.ceo/api/breeds/image/random")
-    .catch((error) => {
-      console.log(error);
-    });
+export const fetchRandomDog = async (): Promise<Dog> => {
+  const response: AxiosResponse<DogResponse> = await axios.get<DogResponse>(
+    "https://dog.ceo/api/breeds/image/random"
+  );
   return {
-    id: uuid(),
-    image: response.message,
+    id: uniqid(),
+    image: response.data.message,
   };
 };

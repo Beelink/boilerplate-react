@@ -1,10 +1,5 @@
 import Dog from "@entities/dog";
-
-import {
-  ADD_DOG,
-  REMOVE_DOG_BY_ID,
-  FETCH_RANDOM_DOG_IMAGE,
-} from "@store/dogs/dogs.actions";
+import { ADD_DOG, REMOVE_DOG_BY_ID } from "@store/dogs/dogs.actions";
 
 type AddDogAction = {
   type: typeof ADD_DOG;
@@ -16,17 +11,10 @@ type AddDogAction = {
 type RemoveDogByIdAction = {
   type: typeof REMOVE_DOG_BY_ID;
   payload: {
-    id: number;
+    id: string;
   };
 };
 
-type FetchRandomDogImageAction = {
-  type: typeof FETCH_RANDOM_DOG_IMAGE;
-};
-
-type DogsAction =
-  | AddDogAction
-  | RemoveDogByIdAction
-  | FetchRandomDogImageAction;
+type DogsAction = AddDogAction | RemoveDogByIdAction;
 
 export default DogsAction;

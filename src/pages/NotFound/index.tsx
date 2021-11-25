@@ -1,18 +1,20 @@
-import React, { FunctionComponent, useContext } from "react";
-import { LangContext } from "@context/lang";
-import langs from "./langs";
+import { FunctionComponent } from "react";
 import "./index.scoped.scss";
+import WidthContainer, {
+  WidthContainerSlot,
+} from "@components/atoms/WidthContainer";
 
 const NotFoundPage: FunctionComponent = () => {
-  const { lang } = useContext(LangContext);
 
   return (
     <div className="not-found-page">
-      <div className="not-found-page__inner">
-        <h1>404</h1>
-        <h2>{ langs[lang].title }</h2>
-        <h4>{ langs[lang].subtitle }</h4>
-      </div>
+      <WidthContainer>
+        <WidthContainerSlot>
+          <div className="not-found-page__inner">
+            <h1>404</h1>
+          </div>
+        </WidthContainerSlot>
+      </WidthContainer>
     </div>
   );
 };

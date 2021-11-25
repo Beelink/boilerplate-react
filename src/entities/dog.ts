@@ -1,5 +1,5 @@
 type Dog = {
-  id: number;
+  id: string;
   image: string;
 };
 
