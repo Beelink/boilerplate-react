@@ -29,7 +29,7 @@
 
   &--dark &__lds-dual-ring {
     &::after {
-      border-color: #000 transparent #000 transparent;
+      border-color: $text-color transparent $text-color transparent;
     }
   }
 }

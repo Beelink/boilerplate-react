@@ -25,7 +25,7 @@ const ImageLoader: FunctionComponent<ImageLoaderProps> = ({
         height,
       }}
     >
-      {!loaded && <Loader size={LoaderSize.small} dark={false} />}
+      {!loaded && <Loader size={LoaderSize.small} />}
       <img
         className={cn({
           "image-loader__image": true,
