@@ -14,7 +14,7 @@ const LangChooser: FunctionComponent = () => {
 
   const langs: ItemDataType[] = __config.lang.allLangs.map((l) => {
     return {
-      label: l,
+      label: l.toUpperCase(),
       value: l,
     };
   });

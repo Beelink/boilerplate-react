@@ -1,28 +1,30 @@
 import { useContext, FunctionComponent } from "react";
 import { LangContext } from "@context/Lang";
-import "./index.scoped.scss";
 import WidthContainer, {
   WidthContainerSlot,
 } from "@components/atoms/WidthContainer";
 import LangChooser from "@components/molecules/LangChooser";
-import { NavLink } from "react-router-dom";
 import Logo from "@components/atoms/Logo";
 import { Nav } from "rsuite";
+import "./index.scoped.scss";
+import NavLinkExtended from "@components/atoms/NavLinkExtended";
+import { useLocation } from "react-router-dom";
 
 const Header: FunctionComponent = () => {
+  const location = useLocation();
   const { t } = useContext(LangContext);
 
   const menuItems = [
     {
-      title: t("header.menu.about"),
+      title: t("menu.about"),
       to: "/about",
     },
     {
-      title: t("header.menu.news"),
+      title: t("menu.news"),
       to: "/news",
     },
     {
-      title: t("header.menu.contacts"),
+      title: t("menu.contacts"),
       to: "/contacts",
     },
   ];
@@ -33,15 +35,17 @@ const Header: FunctionComponent = () => {
         <WidthContainerSlot>
           <div className="header__inner">
             <div className="header__logo">
-              <Logo />
+              <Logo clickable={location.pathname !== "/"} />
             </div>
             <div className="header__nav">
               <Nav>
                 {menuItems.map((item, itemIndex) => {
                   return (
-                    <Nav.Item key={itemIndex} as="div">
-                      <NavLink to={item.to} className="header__nav-link">{item.title}</NavLink>
-                    </Nav.Item>
+                    <NavLinkExtended
+                      key={itemIndex}
+                      to={item.to}
+                      text={item.title}
+                    />
                   );
                 })}
               </Nav>

@@ -1,5 +1,8 @@
 {
   "header.menu.about": "О проекте",
   "header.menu.news": "Новости",
-  "header.menu.contacts": "Контакты"
+  "header.menu.contacts": "Контакты",
+
+  "page.home": "Домашняя страница",
+  "page.about": "О проекте"
 }

@@ -6,15 +6,15 @@ import "./index.scoped.scss";
 import { LangContext } from "@context/Lang";
 import { useContext } from "react";
 
-const HomePage: FunctionComponent = () => {
+const AboutPage: FunctionComponent = () => {
   const { t } = useContext(LangContext);
 
   return (
-    <div className="home-page">
+    <div className="about-page">
       <WidthContainer>
         <WidthContainerSlot>
-          <div className="home-page__inner">
-            <h1>{t("page.home")}</h1>
+          <div className="about-page__inner">
+            <h1>{t("page.about")}</h1>
           </div>
         </WidthContainerSlot>
       </WidthContainer>
@@ -22,4 +22,4 @@ const HomePage: FunctionComponent = () => {
   );
 };
 
-export default HomePage;
+export default AboutPage;

@@ -1,0 +1,26 @@
+@import "@assets/scss/variables";
+
+.footer {
+  background: $back-color-light;
+
+  &__inner {
+    display: flex;
+    padding: 16px 0;
+  }
+
+  &__col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__col-title {
+    font-weight: bold;
+  }
+
+  &__copyright {
+    text-align: center;
+    background: $back-color-dark;
+    padding: 8px 16px;
+  }
+}

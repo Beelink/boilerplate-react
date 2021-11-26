@@ -1,10 +1,14 @@
 import { FunctionComponent } from "react";
-// import LogoImage from ".@assets/images/logo.png";
+import { Link } from "react-router-dom";
+import "./index.scoped.scss";
+import LogoProps from "./props";
 
-const Logo: FunctionComponent = () => {
+const logoContent = () => <span>LOGO</span>;
+
+const Logo: FunctionComponent<LogoProps> = ({ clickable = false }) => {
   return (
     <div className="logo">
-      {/* <img src={ LogoImage } /> */}
+      {clickable ? <Link to="/">{logoContent()}</Link> : logoContent()}
     </div>
   );
 };

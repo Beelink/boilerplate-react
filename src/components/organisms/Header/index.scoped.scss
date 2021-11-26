@@ -1,24 +1,20 @@
+@import "@assets/scss/variables";
+
 .header {
+  background: $back-color-light;
+
   &__inner {
     display: flex;
     padding: 16px 0;
+  }
 
-    .rs-nav-item {
-      padding: 0;
-      margin-right: 18px;
-    }
+  &__logo {
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
   }
 
   &__nav {
     flex: 1;
-  }
-
-  &__nav-link {
-    padding: 8px 12px;
-    display: block;
-
-    &:hover {
-      text-decoration: none;
-    }
   }
 }

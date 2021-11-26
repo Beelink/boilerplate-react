@@ -4,6 +4,10 @@ interface ApiConfig {
 }
 
 interface Config {
+  project: {
+    name: string;
+    copyright: string;
+  };
   api: {
     dev: ApiConfig;
     stage: ApiConfig;
