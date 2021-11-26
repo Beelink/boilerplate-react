@@ -1,5 +1,9 @@
 import Dog from "@entities/dog";
-import { ADD_DOG, REMOVE_DOG_BY_ID } from "@store/dogs/dogs.actions";
+import {
+  ADD_DOG,
+  REMOVE_DOG_BY_ID,
+  SET_IS_LOADING,
+} from "@store/dogs/dogs.actions";
 
 type AddDogAction = {
   type: typeof ADD_DOG;
@@ -15,6 +19,13 @@ type RemoveDogByIdAction = {
   };
 };
 
-type DogsAction = AddDogAction | RemoveDogByIdAction;
+type SetIsLoadingAction = {
+  type: typeof SET_IS_LOADING;
+  payload: {
+    loading: boolean;
+  };
+};
+
+type DogsAction = AddDogAction | RemoveDogByIdAction | SetIsLoadingAction;
 
 export default DogsAction;

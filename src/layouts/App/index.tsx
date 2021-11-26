@@ -10,7 +10,8 @@ const App: FunctionComponent<RouteConfigComponentProps> = ({ route }) => {
     <LangProvider>
       <div className="app-layout">
         <Header />
-        {renderRoutes(route?.routes)}
+        <div className="app-layout__page">
+        {renderRoutes(route?.routes)}</div>
         <Footer />
       </div>
     </LangProvider>

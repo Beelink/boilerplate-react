@@ -5,7 +5,7 @@
 
   &__inner {
     display: flex;
-    padding: 16px 0;
+    padding: 32px 0;
   }
 
   &__col {
@@ -16,6 +16,15 @@
 
   &__col-title {
     font-weight: bold;
+    margin-bottom: 18px;
+  }
+
+  &__row {
+    margin-bottom: 4px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__copyright {

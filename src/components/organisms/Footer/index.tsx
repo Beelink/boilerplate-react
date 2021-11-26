@@ -15,12 +15,12 @@ const Footer: FunctionComponent = () => {
       title: "Help",
       items: [
         {
-          title: t("menu.about"),
-          to: "/about",
-        },
-        {
           title: t("menu.contacts"),
           to: "/contacts",
+        },
+        {
+          title: t("menu.about"),
+          to: "/about",
         },
       ],
     },
@@ -49,9 +49,9 @@ const Footer: FunctionComponent = () => {
                   <span className="footer__col-title">{menu.title}</span>
                   {menu.items.map((item, itemIndex) => {
                     return (
-                      <Link key={itemIndex} to={item.to}>
-                        {item.title}
-                      </Link>
+                      <div key={itemIndex} className="footer__row">
+                        <Link to={item.to}>{item.title}</Link>
+                      </div>
                     );
                   })}
                 </div>

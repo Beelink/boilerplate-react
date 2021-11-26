@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-import stopwatchReducer from "@store/dogs/dogs.reducer";
+import dogsReducer from "@store/dogs/dogs.reducer";
 
 const rootReducer = combineReducers({
-  stopwatch: stopwatchReducer,
+  dogs: dogsReducer,
 });
 
 export default rootReducer;
