@@ -1,2 +1,2 @@
-export const SIGNIN = "SIGNIN";
-export const SET_IS_LOADING = "SET_IS_LOADING";
+export const USER_SIGNIN = "SIGNIN";
+export const USER_SET_IS_LOADING = "USER_SET_IS_LOADING";

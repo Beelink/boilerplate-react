@@ -1,20 +1,20 @@
 import User from "@entities/user.entity";
-import { SIGNIN, SET_IS_LOADING } from "@store/user/user.actions";
+import { USER_SIGNIN, USER_SET_IS_LOADING } from "@store/user/user.actions";
 
-type SignInAction = {
-  type: typeof SIGNIN;
+type UserSigninAction = {
+  type: typeof USER_SIGNIN;
   payload: {
     user: User;
   };
 };
 
-type SetIsLoadingAction = {
-  type: typeof SET_IS_LOADING;
+type UserSetIsLoadingAction = {
+  type: typeof USER_SET_IS_LOADING;
   payload: {
     loading: boolean;
   };
 };
 
-type UserAction = SignInAction | SetIsLoadingAction;
+type UserAction = UserSigninAction | UserSetIsLoadingAction;
 
 export default UserAction;

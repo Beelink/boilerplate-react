@@ -1,5 +1,5 @@
 import userInitialState from "@store/user/user.initialState";
-import { SIGNIN, SET_IS_LOADING } from "@store/user/user.actions";
+import { USER_SIGNIN, USER_SET_IS_LOADING } from "@store/user/user.actions";
 import UserAction from "@store/user/user.actionTypes";
 import { UserState } from "@store/state";
 
@@ -8,12 +8,13 @@ const dogsReducer = (
   action: UserAction
 ): UserState => {
   switch (action.type) {
-    case SIGNIN:
+    case USER_SIGNIN:
       return {
         ...state,
+        isLoggedIn: true,
         user: action.payload.user,
       };
-    case SET_IS_LOADING:
+    case USER_SET_IS_LOADING:
       return {
         ...state,
         isLoading: action.payload.loading,

@@ -1,18 +1,18 @@
 import User from "@entities/user.entity";
-import { SIGNIN, SET_IS_LOADING } from "@store/user/user.actions";
+import { USER_SIGNIN, USER_SET_IS_LOADING } from "@store/user/user.actions";
 
-export const signIn = (user: User) => {
+export const userSignin = (user: User) => {
   return {
-    type: SIGNIN,
+    type: USER_SIGNIN,
     payload: {
       user,
     },
   };
 };
 
-export const setIsLoading = (loading: boolean) => {
+export const userSetIsLoading = (loading: boolean) => {
   return {
-    type: SET_IS_LOADING,
+    type: USER_SET_IS_LOADING,
     payload: {
       loading,
     },

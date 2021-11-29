@@ -1,15 +1,17 @@
-import { fetchSignIn } from "@api/auth.api";
+import { fetchSignin } from "@api/auth.api";
 import User from "@entities/user.entity";
 import { Dispatch } from "redux";
-import { signIn, setIsLoading } from "./user.actionCreators";
+import { userSignin, userSetIsLoading } from "./user.actionCreators";
 
-export const fetchSignInThunk = () => {
+export const fetchUserSigninThunk = (email: string, password: string) => {
   return (dispatch: Dispatch) => {
-    dispatch(setIsLoading(true));
-    fetchSignIn()
-      .then((user: User) => {
-        dispatch(signIn(user));
-        dispatch(setIsLoading(false));
+    dispatch(userSetIsLoading(true));
+    fetchSignin(email, password)
+      .then((user: User | null) => {
+        if (user) {
+          dispatch(userSignin(user));
+        }
+        dispatch(userSetIsLoading(false));
       })
       .catch((error) => {
         console.log(error);

@@ -6,18 +6,28 @@ import { InputGroup, Input, IconButton } from "rsuite";
 import { ArrowRightLine as SigninIcon } from "@rsuite/icons";
 import "./index.scoped.scss";
 import { useDispatch } from "react-redux";
-import { fetchSignInThunk } from "@store/user/user.thunk";
+import { fetchUserSigninThunk } from "@store/user/user.thunk";
 
 const SigninPage: FunctionComponent = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
+  const [signinData, setSigninData] = useState({
+    email: "",
+    provider: "",
+    password: "",
+  });
 
   const _toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
   const _signin = () => {
-    dispatch(fetchSignInThunk());
+    dispatch(
+      fetchUserSigninThunk(
+        `${signinData.email}@${signinData.provider}`,
+        signinData.password
+      )
+    );
   };
 
   return (
@@ -29,9 +39,19 @@ const SigninPage: FunctionComponent = () => {
             <div className="signin-page__form">
               <div className="signin-page__row">
                 <InputGroup>
-                  <Input placeholder="Email" />
+                  <Input
+                    placeholder="Email"
+                    onChange={(e) => {
+                      setSigninData({ ...signinData, email: e });
+                    }}
+                  />
                   <InputGroup.Addon>@</InputGroup.Addon>
-                  <Input placeholder="*.com" />
+                  <Input
+                    placeholder="*.com"
+                    onChange={(e) => {
+                      setSigninData({ ...signinData, provider: e });
+                    }}
+                  />
                 </InputGroup>
               </div>
               <div className="signin-page__row">
@@ -39,6 +59,9 @@ const SigninPage: FunctionComponent = () => {
                   <Input
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
+                    onChange={(e) => {
+                      setSigninData({ ...signinData, password: e });
+                    }}
                   />
                   <InputGroup.Button onClick={_toggleShowPassword}>
                     {showPassword ? "Hide" : "Show"}
