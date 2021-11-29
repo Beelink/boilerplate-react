@@ -9,6 +9,7 @@ import { Nav } from "rsuite";
 import "./index.scoped.scss";
 import NavLinkExtended from "@components/atoms/NavLinkExtended";
 import { useLocation } from "react-router-dom";
+import MobileDrawer from "../MobileDrawer";
 
 const Header: FunctionComponent = () => {
   const location = useLocation();
@@ -51,6 +52,9 @@ const Header: FunctionComponent = () => {
               </Nav>
             </div>
             <LangChooser />
+            <div className="header__mobile-drawer">
+              <MobileDrawer menuItems={menuItems} />
+            </div>
           </div>
         </WidthContainerSlot>
       </WidthContainer>

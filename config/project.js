@@ -1,4 +1,4 @@
 module.exports = {
   title: "React Boilerplate",
-  copyright: "Copyright© 2021 RUPOOLproject.com",
+  copyright: "Copyright© 2021 React Boilerplate",
 };

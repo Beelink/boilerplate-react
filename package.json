@@ -12,7 +12,9 @@
     "react",
     "template",
     "typescript",
-    "webpack"
+    "webpack",
+    "i18n",
+    "rsuite"
   ],
   "author": "Eugene Volynko",
   "license": "ISC",
@@ -27,6 +29,7 @@
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
     "@svgr/webpack": "^5.2.0",
+    "@types/i18next": "^13.0.0",
     "@types/prop-types": "^15.7.4",
     "@types/qs": "^6.9.7",
     "@types/react": "^17.0.37",
@@ -58,7 +61,6 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "@types/i18next": "^13.0.0",
     "axios": "^0.21.1",
     "babel-plugin-react-scoped-css": "^1.1.1",
     "classnames": "^2.2.6",
