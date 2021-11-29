@@ -3,7 +3,7 @@ import "./index.scoped.scss";
 import MobileDrawerProps from "./props";
 import { Drawer, IconButton, Nav } from "rsuite";
 import NavLinkExtended from "@components/atoms/NavLinkExtended";
-import { Menu as MenuIcon, Close as CloseIcon } from "@rsuite/icons";
+import { Menu as MenuIcon } from "@rsuite/icons";
 
 const MobileDrawer: FunctionComponent<MobileDrawerProps> = ({ menuItems }) => {
   const [isOpened, setOpened] = useState(false);

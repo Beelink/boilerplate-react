@@ -4,6 +4,7 @@ import AppLayout from "@layouts/App";
 // pages
 import HomePage from "@pages/Home";
 import AboutPage from "@pages/About";
+import SigninPage from "@pages/Signin";
 import NotFoundPage from "@pages/NotFound";
 
 // routes
@@ -13,6 +14,7 @@ const routes = [
     routes: [
       { exact: true, path: "/", component: HomePage },
       { exact: true, path: "/about", component: AboutPage },
+      { exact: true, path: "/signin", component: SigninPage },
       { component: NotFoundPage },
     ],
   },

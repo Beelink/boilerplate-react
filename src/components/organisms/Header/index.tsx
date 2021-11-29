@@ -5,14 +5,15 @@ import WidthContainer, {
 } from "@components/atoms/WidthContainer";
 import LangChooser from "@components/molecules/LangChooser";
 import Logo from "@components/atoms/Logo";
-import { Nav } from "rsuite";
+import { Nav, Button } from "rsuite";
 import "./index.scoped.scss";
 import NavLinkExtended from "@components/atoms/NavLinkExtended";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import MobileDrawer from "../MobileDrawer";
 
 const Header: FunctionComponent = () => {
   const location = useLocation();
+  const history = useHistory();
   const { t } = useContext(LangContext);
 
   const menuItems = [
@@ -29,6 +30,10 @@ const Header: FunctionComponent = () => {
       to: "/contacts",
     },
   ];
+
+  const _goToSigninPage = () => {
+    history.push("/signin");
+  }
 
   return (
     <header className="header">
@@ -52,6 +57,9 @@ const Header: FunctionComponent = () => {
               </Nav>
             </div>
             <LangChooser />
+            <div className="header__actions">
+                <Button onClick={_goToSigninPage}>Sign In</Button>
+            </div>
             <div className="header__mobile-drawer">
               <MobileDrawer menuItems={menuItems} />
             </div>
