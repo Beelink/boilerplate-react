@@ -1,4 +1,11 @@
-import Dog from "@entities/dog";
+import User from "@entities/user.entity";
+import Dog from "@entities/dog.entity";
+
+export type UserState = {
+  isLoggedIn: boolean;
+  user: User | null;
+  isLoading: boolean;
+};
 
 export type DogsState = {
   dogs: Dog[];
@@ -6,6 +13,7 @@ export type DogsState = {
 };
 
 type State = {
+  user: UserState;
   dogs: DogsState;
 };
 

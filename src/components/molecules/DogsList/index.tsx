@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import "./index.scoped.scss";
-import { addRandomDog } from "@store/dogs/dogs.thunks";
+import { fetchAddRandomDogThunk } from "@store/dogs/dogs.thunk";
 import { removeDogById } from "@store/dogs/dogs.actionCreators";
 import { useDispatch, useSelector } from "react-redux";
 import State from "@store/state";
@@ -16,7 +16,7 @@ const DogsList: FunctionComponent = () => {
   const isLoading = useSelector((state: State) => state.dogs.isLoading);
 
   const _addRandomDog = () => {
-    dispatch(addRandomDog());
+    dispatch(fetchAddRandomDogThunk());
   };
 
   return (

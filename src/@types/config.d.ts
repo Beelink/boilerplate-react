@@ -8,11 +8,7 @@ interface Config {
     name: string;
     copyright: string;
   };
-  api: {
-    dev: ApiConfig;
-    stage: ApiConfig;
-    prod: ApiConfig;
-  };
+  api: ApiConfig;
   lang: {
     allLangs: string[];
     defaultLang: string;

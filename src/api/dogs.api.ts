@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from "axios";
-import Dog from "@entities/dog";
+import Dog from "@entities/dog.entity";
 import uniqid from "uniqid";
+
 interface DogResponse {
   message: string;
   status: string;

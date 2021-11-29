@@ -5,15 +5,20 @@ import WidthContainer, {
 import { InputGroup, Input, IconButton } from "rsuite";
 import { ArrowRightLine as SigninIcon } from "@rsuite/icons";
 import "./index.scoped.scss";
+import { useDispatch } from "react-redux";
+import { fetchSignInThunk } from "@store/user/user.thunk";
 
 const SigninPage: FunctionComponent = () => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
   const _toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const _signin = () => {};
+  const _signin = () => {
+    dispatch(fetchSignInThunk());
+  };
 
   return (
     <div className="signin-page">
