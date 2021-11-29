@@ -1,25 +1,26 @@
-import { FunctionComponent, useState, useEffect } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import WidthContainer, {
   WidthContainerSlot,
 } from "@components/atoms/WidthContainer";
 import { InputGroup, Input, IconButton } from "rsuite";
-import { ArrowRightLine as SigninIcon } from "@rsuite/icons";
+import {
+  ArrowRightLine as SignupIcon,
+  UserInfo as UserIcon,
+} from "@rsuite/icons";
 import "./index.scoped.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserSigninThunk } from "@store/user/user.thunk";
 import State from "@store/state";
 import { useHistory } from "react-router";
-import Loader from "@components/atoms/Loader";
-import { LoaderSize } from "@components/atoms/Loader/props";
 
-const SigninPage: FunctionComponent = () => {
+const SignupPage: FunctionComponent = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state: State) => state.user.isLoggedIn);
   const isLoading = useSelector((state: State) => state.user.isLoading);
-
   const [showPassword, setShowPassword] = useState(false);
-  const [signinData, setSigninData] = useState({
+  const [signupData, setSignupData] = useState({
+    username: "",
     email: "",
     provider: "",
     password: "",
@@ -43,11 +44,11 @@ const SigninPage: FunctionComponent = () => {
     setShowPassword(!showPassword);
   };
 
-  const _signin = () => {
+  const _signup = () => {
     dispatch(
       fetchUserSigninThunk(
-        `${signinData.email}@${signinData.provider}`,
-        signinData.password
+        `${signupData.email}@${signupData.provider}`,
+        signupData.password
       )
     );
   };
@@ -57,21 +58,34 @@ const SigninPage: FunctionComponent = () => {
       <WidthContainer>
         <WidthContainerSlot>
           <div className="signin-page__inner">
-            <h1>Sign In</h1>
+            <h1>Sign Up</h1>
             <div className="signin-page__form">
+              <div className="signin-page__row">
+                <InputGroup>
+                  <InputGroup.Addon>
+                    <UserIcon />
+                  </InputGroup.Addon>
+                  <Input
+                    placeholder="Name"
+                    onChange={(e) => {
+                      setSignupData({ ...signupData, username: e });
+                    }}
+                  />
+                </InputGroup>
+              </div>
               <div className="signin-page__row">
                 <InputGroup>
                   <Input
                     placeholder="Email"
                     onChange={(e) => {
-                      setSigninData({ ...signinData, email: e });
+                      setSignupData({ ...signupData, email: e });
                     }}
                   />
                   <InputGroup.Addon>@</InputGroup.Addon>
                   <Input
                     placeholder="*.com"
                     onChange={(e) => {
-                      setSigninData({ ...signinData, provider: e });
+                      setSignupData({ ...signupData, provider: e });
                     }}
                   />
                 </InputGroup>
@@ -82,7 +96,7 @@ const SigninPage: FunctionComponent = () => {
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
                     onChange={(e) => {
-                      setSigninData({ ...signinData, password: e });
+                      setSignupData({ ...signupData, password: e });
                     }}
                   />
                   <InputGroup.Button onClick={_toggleShowPassword}>
@@ -91,10 +105,9 @@ const SigninPage: FunctionComponent = () => {
                 </InputGroup>
               </div>
               <div className="signin-page__row">
-                <IconButton icon={<SigninIcon />} onClick={_signin}>
-                  Sign In
+                <IconButton icon={<SignupIcon />} onClick={_signup}>
+                  Sign Up
                 </IconButton>
-                {isLoading && <Loader size={LoaderSize.small} />}
               </div>
             </div>
           </div>
@@ -104,4 +117,4 @@ const SigninPage: FunctionComponent = () => {
   );
 };
 
-export default SigninPage;
+export default SignupPage;

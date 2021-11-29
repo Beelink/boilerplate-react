@@ -27,6 +27,7 @@ const LangChooser: FunctionComponent = () => {
         searchable={false}
         cleanable={false}
         onChange={handleChange}
+        appearance="subtle"
       />
     </div>
   );

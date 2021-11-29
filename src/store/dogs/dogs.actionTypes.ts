@@ -1,26 +1,26 @@
 import Dog from "@entities/dog.entity";
 import {
-  ADD_DOG,
-  REMOVE_DOG_BY_ID,
-  SET_IS_LOADING,
+  DOGS_ADD_DOG,
+  DOGS_REMOVE_DOG_BY_ID,
+  DOGS_SET_IS_LOADING,
 } from "@store/dogs/dogs.actions";
 
 type AddDogAction = {
-  type: typeof ADD_DOG;
+  type: typeof DOGS_ADD_DOG;
   payload: {
     dog: Dog;
   };
 };
 
 type RemoveDogByIdAction = {
-  type: typeof REMOVE_DOG_BY_ID;
+  type: typeof DOGS_REMOVE_DOG_BY_ID;
   payload: {
     id: string;
   };
 };
 
 type SetIsLoadingAction = {
-  type: typeof SET_IS_LOADING;
+  type: typeof DOGS_SET_IS_LOADING;
   payload: {
     loading: boolean;
   };
