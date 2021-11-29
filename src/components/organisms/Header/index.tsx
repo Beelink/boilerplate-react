@@ -8,13 +8,17 @@ import Logo from "@components/atoms/Logo";
 import { Nav } from "rsuite";
 import "./index.scoped.scss";
 import NavLinkExtended from "@components/atoms/NavLinkExtended";
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import MobileDrawer from "../MobileDrawer";
 import AuthActions from "@components/molecules/AuthActions";
+import { useSelector } from "react-redux";
+import State from "@store/state";
+import ProfileMenu from "@components/molecules/ProfileMenu";
 
 const Header: FunctionComponent = () => {
   const location = useLocation();
   const { t } = useContext(LangContext);
+  const isLoggedIn = useSelector((state: State) => state.user.isLoggedIn);
 
   const menuItems = [
     {
@@ -54,7 +58,7 @@ const Header: FunctionComponent = () => {
             </div>
             <LangChooser />
             <div className="header__actions">
-              <AuthActions />
+              {isLoggedIn ? <ProfileMenu /> : <AuthActions />}
             </div>
             <div className="header__mobile-drawer">
               <MobileDrawer menuItems={menuItems} />

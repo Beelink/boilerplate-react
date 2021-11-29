@@ -9,9 +9,11 @@ import {
 } from "@rsuite/icons";
 import "./index.scoped.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUserSigninThunk } from "@store/user/user.thunk";
+import { fetchUserSignupThunk } from "@store/user/user.thunk";
 import State from "@store/state";
 import { useHistory } from "react-router";
+import Loader from "@components/atoms/Loader";
+import { LoaderSize } from "@components/atoms/Loader/props";
 
 const SignupPage: FunctionComponent = () => {
   const history = useHistory();
@@ -46,7 +48,8 @@ const SignupPage: FunctionComponent = () => {
 
   const _signup = () => {
     dispatch(
-      fetchUserSigninThunk(
+      fetchUserSignupThunk(
+        signupData.username,
         `${signupData.email}@${signupData.provider}`,
         signupData.password
       )
@@ -54,13 +57,13 @@ const SignupPage: FunctionComponent = () => {
   };
 
   return (
-    <div className="signin-page">
+    <div className="signup-page">
       <WidthContainer>
         <WidthContainerSlot>
-          <div className="signin-page__inner">
+          <div className="signup-page__inner">
             <h1>Sign Up</h1>
-            <div className="signin-page__form">
-              <div className="signin-page__row">
+            <div className="signup-page__form">
+              <div className="signup-page__row">
                 <InputGroup>
                   <InputGroup.Addon>
                     <UserIcon />
@@ -73,7 +76,7 @@ const SignupPage: FunctionComponent = () => {
                   />
                 </InputGroup>
               </div>
-              <div className="signin-page__row">
+              <div className="signup-page__row">
                 <InputGroup>
                   <Input
                     placeholder="Email"
@@ -90,7 +93,7 @@ const SignupPage: FunctionComponent = () => {
                   />
                 </InputGroup>
               </div>
-              <div className="signin-page__row">
+              <div className="signup-page__row">
                 <InputGroup inside>
                   <Input
                     type={showPassword ? "text" : "password"}
@@ -104,10 +107,11 @@ const SignupPage: FunctionComponent = () => {
                   </InputGroup.Button>
                 </InputGroup>
               </div>
-              <div className="signin-page__row">
+              <div className="signup-page__row">
                 <IconButton icon={<SignupIcon />} onClick={_signup}>
                   Sign Up
                 </IconButton>
+                {isLoading && <Loader size={LoaderSize.small} />}
               </div>
             </div>
           </div>
