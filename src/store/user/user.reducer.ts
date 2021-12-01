@@ -6,6 +6,7 @@ import {
 } from "@store/user/user.actions";
 import UserAction from "@store/user/user.actionTypes";
 import { UserState } from "@store/state";
+import userTokenService from "@services/userToken.service";
 
 const dogsReducer = (
   state: UserState = userInitialState,
@@ -13,6 +14,7 @@ const dogsReducer = (
 ): UserState => {
   switch (action.type) {
     case USER_SIGNIN:
+      userTokenService.saveUserToken(action.payload.user.accessToken);
       return {
         ...state,
         isLoggedIn: true,
@@ -24,6 +26,7 @@ const dogsReducer = (
         isLoading: action.payload.loading,
       };
     case USER_LOGOUT:
+      userTokenService.clearUserToken();
       return {
         ...state,
         isLoggedIn: false,

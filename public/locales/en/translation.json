@@ -8,5 +8,6 @@
 
   "signin": "Sign In",
   "signup": "Sign Up",
-  "logout": "Logout"
+  "logout": "Logout",
+  "profile": "Profile"
 }

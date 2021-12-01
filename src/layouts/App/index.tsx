@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect } from "react";
 import Header from "@components/organisms/Header";
 import Footer from "@components/organisms/Footer";
 import { renderRoutes, RouteConfigComponentProps } from "react-router-config";
@@ -6,8 +6,20 @@ import { LangProvider } from "@context/Lang";
 import { ToastContainer, toast } from 'material-react-toastify';
 import 'material-react-toastify/dist/ReactToastify.css';
 import "./index.scoped.scss";
+import userTokenService from "@services/userToken.service";
+import { useDispatch } from "react-redux";
+import { fetchCurrentUserThunk } from "@store/user/user.thunk";
 
 const App: FunctionComponent<RouteConfigComponentProps> = ({ route }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const accessToken = userTokenService.getUserToken();
+    if (accessToken) {
+      dispatch(fetchCurrentUserThunk(accessToken));
+    }
+  });
+
   return (
     <LangProvider>
       <ToastContainer position={toast.POSITION.TOP_RIGHT} />

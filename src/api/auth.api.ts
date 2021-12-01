@@ -28,3 +28,21 @@ export const fetchSignup = async (
 
   return response.data;
 };
+
+export const fetchCurrentUser = async (
+  token: string
+): Promise<AuthApiResponse> => {
+  const response: AxiosResponse<AuthApiResponse> = await axios.post<
+    AuthApiResponse
+  >(
+    `${__config.api.apiPrefix}/user`,
+    { token },
+    {
+      headers: {
+        "user-access-token": token,
+      },
+    }
+  );
+
+  return response.data;
+};
