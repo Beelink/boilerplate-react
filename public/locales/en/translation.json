@@ -6,8 +6,8 @@
   "page.home": "Home page",
   "page.about": "About page",
 
-  "signin": "Sign In",
-  "signup": "Sign Up",
-  "logout": "Logout",
-  "profile": "Profile"
+  "signin": "Sign in",
+  "signup": "Sign up",
+  "logout": "Sign out",
+  "profile": "Your profile"
 }

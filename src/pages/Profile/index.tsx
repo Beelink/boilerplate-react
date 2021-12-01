@@ -7,6 +7,7 @@ import { LangContext } from "@context/Lang";
 import { useContext } from "react";
 import { useSelector } from "react-redux";
 import State from "@store/state";
+import ImageLoader from "@components/atoms/ImageLoader";
 
 const ProfilePage: FunctionComponent = () => {
   const { t } = useContext(LangContext);
@@ -21,6 +22,7 @@ const ProfilePage: FunctionComponent = () => {
             {user && (
               <div className="profile-page__user-info">
                 <span>{user.username}</span>
+                <ImageLoader src={user.image} width={200} height={200} rounded />
               </div>
             )}
           </div>

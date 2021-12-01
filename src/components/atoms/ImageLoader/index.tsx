@@ -6,10 +6,11 @@ import "./index.scoped.scss";
 import cn from "classnames";
 
 const ImageLoader: FunctionComponent<ImageLoaderProps> = ({
-  src,
+  src = "",
   alt = "",
   width,
   height,
+  rounded = false,
 }) => {
   const [loaded, setLoaded] = useState(false);
 
@@ -19,7 +20,10 @@ const ImageLoader: FunctionComponent<ImageLoaderProps> = ({
 
   return (
     <div
-      className="image-loader"
+      className={cn({
+        "image-loader": true,
+        "image-loader--rounded": rounded,
+      })}
       style={{
         width,
         height,

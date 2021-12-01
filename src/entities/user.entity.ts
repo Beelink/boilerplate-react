@@ -9,6 +9,7 @@ interface User {
   email: string;
   role: UserRoleEnum;
   accessToken?: string;
+  image: string;
 }
 
 export default User;

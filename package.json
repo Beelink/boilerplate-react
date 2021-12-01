@@ -42,7 +42,6 @@
     "@types/react-router-dom": "^5.3.2",
     "@types/redux-logger": "^3.0.9",
     "@types/uniqid": "^5.3.1",
-    "@types/uuid": "^8.3.3",
     "autoprefixer": "^9.4.9",
     "babel-loader": "^8.0.6",
     "compression-webpack-plugin": "^6.0.5",
