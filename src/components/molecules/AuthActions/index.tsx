@@ -1,10 +1,12 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useContext } from "react";
 import { Button } from "rsuite";
 import "./index.scoped.scss";
 import { useHistory } from "react-router-dom";
+import { LangContext } from "@context/Lang";
 
 const AuthActions: FunctionComponent = () => {
   const history = useHistory();
+  const { t } = useContext(LangContext);
 
   const _goToSigninPage = () => {
     history.push("/signin");
@@ -17,10 +19,10 @@ const AuthActions: FunctionComponent = () => {
   return (
     <div className="auth-actions">
       <Button appearance="ghost" onClick={_goToSigninPage}>
-        Sign In
+        {t("signin")}
       </Button>
       <Button appearance="primary" onClick={_goToSignupPage}>
-        Sign Up
+        {t("signup")}
       </Button>
     </div>
   );

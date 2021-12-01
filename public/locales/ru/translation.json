@@ -4,5 +4,9 @@
   "menu.contacts": "Контакты",
 
   "page.home": "Домашняя страница",
-  "page.about": "О проекте"
+  "page.about": "О проекте",
+
+  "signin": "Войти",
+  "signup": "Создать аккаунт",
+  "logout": "Выйти"
 }

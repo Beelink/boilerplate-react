@@ -57,6 +57,11 @@ module.exports = merge(common, {
         ],
         exclude: [/node_modules/, /public/],
       },
+      // css
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
       // images
       {
         test: /\.(png|jpe?g|gif|jp2|webp)$/,

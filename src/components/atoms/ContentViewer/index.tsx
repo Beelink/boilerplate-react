@@ -1,5 +1,5 @@
 import parse from "html-react-parser";
-import { FunctionComponent } from "react-virtualized/node_modules/@types/react";
+import { FunctionComponent } from "react";
 import ContentViewerProps from "./props";
 
 const ContentViewer: FunctionComponent<ContentViewerProps> = ({ content }) => {

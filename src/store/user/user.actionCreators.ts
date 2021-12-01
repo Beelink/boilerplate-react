@@ -1,5 +1,9 @@
 import User from "@entities/user.entity";
-import { USER_SIGNIN, USER_SET_IS_LOADING } from "@store/user/user.actions";
+import {
+  USER_SIGNIN,
+  USER_SET_IS_LOADING,
+  USER_LOGOUT,
+} from "@store/user/user.actions";
 
 export const signin = (user: User) => {
   return {
@@ -16,5 +20,11 @@ export const setIsLoading = (loading: boolean) => {
     payload: {
       loading,
     },
+  };
+};
+
+export const logout = () => {
+  return {
+    type: USER_LOGOUT,
   };
 };

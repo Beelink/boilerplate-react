@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useEffect, useState, useContext } from "react";
 import WidthContainer, {
   WidthContainerSlot,
 } from "@components/atoms/WidthContainer";
@@ -14,8 +14,10 @@ import State from "@store/state";
 import { useHistory } from "react-router";
 import Loader from "@components/atoms/Loader";
 import { LoaderSize } from "@components/atoms/Loader/props";
+import { LangContext } from "@context/Lang";
 
 const SignupPage: FunctionComponent = () => {
+  const { t } = useContext(LangContext);
   const history = useHistory();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state: State) => state.user.isLoggedIn);
@@ -61,7 +63,7 @@ const SignupPage: FunctionComponent = () => {
       <WidthContainer>
         <WidthContainerSlot>
           <div className="signup-page__inner">
-            <h1>Sign Up</h1>
+            <h1>{t("signup")}</h1>
             <div className="signup-page__form">
               <div className="signup-page__row">
                 <InputGroup>
@@ -109,7 +111,7 @@ const SignupPage: FunctionComponent = () => {
               </div>
               <div className="signup-page__row">
                 <IconButton icon={<SignupIcon />} onClick={_signup}>
-                  Sign Up
+                  {t("signup")}
                 </IconButton>
                 {isLoading && <Loader size={LoaderSize.small} />}
               </div>

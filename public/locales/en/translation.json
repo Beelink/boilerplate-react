@@ -4,5 +4,9 @@
   "menu.contacts": "Contacts",
 
   "page.home": "Home page",
-  "page.about": "About page"
+  "page.about": "About page",
+
+  "signin": "Sign In",
+  "signup": "Sign Up",
+  "logout": "Logout"
 }

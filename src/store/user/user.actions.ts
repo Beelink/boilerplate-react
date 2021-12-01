@@ -1,2 +1,3 @@
 export const USER_SIGNIN = "USER_SIGNIN";
 export const USER_SET_IS_LOADING = "USER_SET_IS_LOADING";
+export const USER_LOGOUT = "USER_LOGOUT";

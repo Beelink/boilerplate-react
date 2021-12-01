@@ -1,6 +1,7 @@
 import { fetchSignin, fetchSignup } from "@api/auth.api";
 import { Dispatch } from "redux";
 import { signin, setIsLoading } from "./user.actionCreators";
+import { toast } from "material-react-toastify";
 
 export const fetchUserSigninThunk = (email: string, password: string) => {
   return (dispatch: Dispatch) => {
@@ -8,6 +9,7 @@ export const fetchUserSigninThunk = (email: string, password: string) => {
     fetchSignin(email, password)
       .then((response) => {
         if (response.error) {
+          toast.error(response.message);
         } else {
           dispatch(signin(response.data));
         }
@@ -29,6 +31,7 @@ export const fetchUserSignupThunk = (
     fetchSignup(username, email, password)
       .then((response) => {
         if (response.error) {
+          toast.error(response.message);
         } else {
           dispatch(signin(response.data));
         }

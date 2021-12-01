@@ -1,5 +1,9 @@
 import User from "@entities/user.entity";
-import { USER_SIGNIN, USER_SET_IS_LOADING } from "@store/user/user.actions";
+import {
+  USER_SIGNIN,
+  USER_SET_IS_LOADING,
+  USER_LOGOUT,
+} from "@store/user/user.actions";
 
 type SigninAction = {
   type: typeof USER_SIGNIN;
@@ -15,6 +19,10 @@ type SetIsLoadingAction = {
   };
 };
 
-type UserAction = SigninAction | SetIsLoadingAction;
+type LogoutAction = {
+  type: typeof USER_LOGOUT;
+};
+
+type UserAction = SigninAction | SetIsLoadingAction | LogoutAction;
 
 export default UserAction;
