@@ -1,9 +1,10 @@
-const webpack = require("webpack");
-const merge = require("webpack-merge");
-const common = require("./webpack.common.babel.js");
-const CompressionPlugin = require("compression-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+import webpack from "webpack";
+import merge from "webpack-merge";
+import common from "./common.babel.js";
+import CompressionPlugin from "compression-webpack-plugin";
+import TerserPlugin from "terser-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import config from "./config/index.js";
 
 module.exports = merge(common, {
   devtool: "cheap-module-source-map",
@@ -37,11 +38,9 @@ module.exports = merge(common, {
       filename: "[name].css",
       chunkFilename: "[id].css",
     }),
+    // config
     new webpack.DefinePlugin({
-      __config: JSON.stringify({
-        apiPrefix: "https://rupoolproject.com/api/v1",
-        imagePrefix: "https://rupoolproject.com/static",
-      }),
+      __config: JSON.stringify(config.prod),
     }),
   ],
   module: {

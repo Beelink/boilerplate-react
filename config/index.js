@@ -1,5 +1,5 @@
-import apiConfig from "./api";
-import langConfig from "./lang";
+import apiConfig from "./api.config";
+import langConfig from "./lang.config";
 
 module.exports = {
   dev: {

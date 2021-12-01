@@ -7,7 +7,7 @@ module.exports = {
     app: path.join(__dirname, "src", "index.tsx"),
   },
   output: {
-    path: __dirname + "/public/build/",
+    path: path.join(__dirname + "public/build/"),
     publicPath: "/public/build/",
     filename: "bundle.js",
   },
