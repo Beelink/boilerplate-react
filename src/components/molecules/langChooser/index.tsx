@@ -14,7 +14,7 @@ const LangChooser: FunctionComponent = () => {
 
   const langs: ItemDataType[] = __config.lang.allLangs.map((l) => {
     return {
-      label: l,
+      label: l.toUpperCase(),
       value: l,
     };
   });
@@ -27,6 +27,7 @@ const LangChooser: FunctionComponent = () => {
         searchable={false}
         cleanable={false}
         onChange={handleChange}
+        appearance="subtle"
       />
     </div>
   );

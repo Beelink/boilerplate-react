@@ -1,3 +1,3 @@
-# react-blank #
+# boilerplate-react
 
-the bolvanka for react projs
+React Boilerplate - The "bolvanka" for react projects

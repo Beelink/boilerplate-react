@@ -1,23 +1,33 @@
-import Dog from "@entities/dog";
+import Dog from "@entities/dog.entity";
 import {
-  ADD_DOG,
-  REMOVE_DOG_BY_ID,
+  DOGS_ADD_DOG,
+  DOGS_REMOVE_DOG_BY_ID,
+  DOGS_SET_IS_LOADING,
 } from "@store/dogs/dogs.actions";
 
 export const addDog = (dog: Dog) => {
   return {
-    type: ADD_DOG,
+    type: DOGS_ADD_DOG,
     payload: {
       dog,
     },
   };
 };
 
-export const removeDogById = (id: number) => {
+export const removeDogById = (id: string) => {
   return {
-    type: REMOVE_DOG_BY_ID,
+    type: DOGS_REMOVE_DOG_BY_ID,
     payload: {
       id,
+    },
+  };
+};
+
+export const setIsLoading = (loading: boolean) => {
+  return {
+    type: DOGS_SET_IS_LOADING,
+    payload: {
+      loading,
     },
   };
 };

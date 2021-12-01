@@ -4,11 +4,11 @@ interface ApiConfig {
 }
 
 interface Config {
-  api: {
-    dev: ApiConfig;
-    stage: ApiConfig;
-    prod: ApiConfig;
+  project: {
+    name: string;
+    copyright: string;
   };
+  api: ApiConfig;
   lang: {
     allLangs: string[];
     defaultLang: string;

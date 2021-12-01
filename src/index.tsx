@@ -4,11 +4,15 @@ import { renderRoutes } from "react-router-config";
 import ScrollToTop from "@components/atoms/ScrollToTop";
 import routes from "./routes";
 import "./assets/scss/index.scss";
+import { Provider } from "react-redux";
+import store from "./store";
 
 render(
-  <BrowserRouter>
-    {/* <ScrollToTop></ScrollToTop> */}
-    {renderRoutes(routes)}
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      {/* <ScrollToTop></ScrollToTop> */}
+      {renderRoutes(routes)}
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );

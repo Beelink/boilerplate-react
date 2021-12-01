@@ -1,5 +1,8 @@
 {
-  "header.menu.about": "About",
-  "header.menu.news": "News",
-  "header.menu.contacts": "Contacts"
+  "menu.about": "About",
+  "menu.news": "News",
+  "menu.contacts": "Contacts",
+
+  "page.home": "Home page",
+  "page.about": "About page"
 }
