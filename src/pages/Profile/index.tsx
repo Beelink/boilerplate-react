@@ -32,27 +32,29 @@ const ProfilePage: FunctionComponent = () => {
 
   const _changePassword = () => {
     dispatch(fetchChangeUserPasswordThunk(user?.accessToken || "", changePasswordData.oldPassword, changePasswordData.newPassword));
-    setChangePasswordData({
-      oldPassword: "",
-      newPassword: ""
-    })
   };
 
   return (
     <div className="profile-page">
-      <WidthContainer>
+      <WidthContainer maxWidth={400}>
         <WidthContainerSlot>
           <div className="profile-page__inner">
-            <h1>{t("profile")}</h1>
+            <div className="profile-page__row">
+              <h1>{t("profile")}</h1>
+            </div>
             {user ? (
               <div className="profile-page__user-info">
-                <span>{user.username}</span>
-                <ImageLoader
-                  src={user.image}
-                  width={200}
-                  height={200}
-                  rounded
-                />
+                <div className="profile-page__row">
+                  <ImageLoader
+                    src={user.image}
+                    width={200}
+                    height={200}
+                    rounded
+                  />
+                </div>
+                <div className="profile-page__row">
+                  <h3 className="profile-page__username">{user.username}</h3>
+                </div>
                 <div className="profile-page__row">
                   <InputGroup inside>
                     <Input

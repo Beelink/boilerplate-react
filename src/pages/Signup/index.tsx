@@ -60,10 +60,12 @@ const SignupPage: FunctionComponent = () => {
 
   return (
     <div className="signup-page">
-      <WidthContainer>
+      <WidthContainer maxWidth={400}>
         <WidthContainerSlot>
           <div className="signup-page__inner">
-            <h1>{t("signup")}</h1>
+            <div className="signup-page__row">
+              <h1>{t("signup")}</h1>
+            </div>
             <div className="signup-page__form">
               <div className="signup-page__row">
                 <InputGroup>
