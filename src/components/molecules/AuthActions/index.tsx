@@ -3,25 +3,18 @@ import { Button } from "rsuite";
 import "./index.scoped.scss";
 import { useHistory } from "react-router-dom";
 import { LangContext } from "@context/Lang";
+import { Link } from "react-router-dom";
 
 const AuthActions: FunctionComponent = () => {
   const history = useHistory();
   const { t } = useContext(LangContext);
 
-  const _goToSigninPage = () => {
-    history.push("/signin");
-  };
-
-  const _goToSignupPage = () => {
-    history.push("/signup");
-  };
-
   return (
     <div className="auth-actions">
-      <Button appearance="ghost" onClick={_goToSigninPage}>
+      <Button as={Link} to="/signin" appearance="ghost">
         {t("signin")}
       </Button>
-      <Button appearance="primary" onClick={_goToSignupPage}>
+      <Button as={Link} to="/signup" appearance="primary">
         {t("signup")}
       </Button>
     </div>

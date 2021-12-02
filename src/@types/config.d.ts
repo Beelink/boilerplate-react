@@ -1,4 +1,5 @@
 interface ApiConfig {
+  userAccessTokenName: string;
   apiPrefix: string;
   staticPrefix: string;
 }

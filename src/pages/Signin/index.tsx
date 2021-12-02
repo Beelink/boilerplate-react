@@ -19,7 +19,6 @@ const SigninPage: FunctionComponent = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state: State) => state.user.isLoggedIn);
   const isLoading = useSelector((state: State) => state.user.isLoading);
-
   const [showPassword, setShowPassword] = useState(false);
   const [signinData, setSigninData] = useState({
     email: "",

@@ -3,6 +3,7 @@ import {
   USER_SIGNIN,
   USER_SET_IS_LOADING,
   USER_LOGOUT,
+  USER_CHANGE_PASSWORD,
 } from "@store/user/user.actions";
 
 type SigninAction = {
@@ -23,6 +24,17 @@ type LogoutAction = {
   type: typeof USER_LOGOUT;
 };
 
-type UserAction = SigninAction | SetIsLoadingAction | LogoutAction;
+type ChangeUserPasswordAction = {
+  type: typeof USER_CHANGE_PASSWORD;
+  payload: {
+    newPassword: string;
+  };
+};
+
+type UserAction =
+  | SigninAction
+  | SetIsLoadingAction
+  | LogoutAction
+  | ChangeUserPasswordAction;
 
 export default UserAction;

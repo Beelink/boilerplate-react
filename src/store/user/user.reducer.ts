@@ -3,6 +3,7 @@ import {
   USER_SIGNIN,
   USER_SET_IS_LOADING,
   USER_LOGOUT,
+  USER_CHANGE_PASSWORD,
 } from "@store/user/user.actions";
 import UserAction from "@store/user/user.actionTypes";
 import { UserState } from "@store/state";
@@ -31,6 +32,15 @@ const dogsReducer = (
         ...state,
         isLoggedIn: false,
         user: null,
+      };
+    case USER_CHANGE_PASSWORD:
+      const user = state.user;
+      if (user) {
+        user.password = action.payload.newPassword;
+      }
+      return {
+        ...state,
+        user,
       };
     default:
       return state;

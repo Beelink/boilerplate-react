@@ -8,6 +8,7 @@ interface User {
   username: string;
   email: string;
   role: UserRoleEnum;
+  password: string;
   accessToken?: string;
   image: string;
 }

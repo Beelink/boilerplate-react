@@ -1,6 +1,6 @@
 const localStorageService = {
   getUserToken() {
-    const token = localStorage.getItem("user-access-token");
+    const token = localStorage.getItem(__config.api.userAccessTokenName);
     if (token) {
       return token;
     }
@@ -8,11 +8,11 @@ const localStorageService = {
   },
   saveUserToken(token: string | undefined) {
     if (token) {
-      localStorage.setItem("user-access-token", token);
+      localStorage.setItem(__config.api.userAccessTokenName, token);
     }
   },
   clearUserToken() {
-    localStorage.removeItem("user-access-token");
+    localStorage.removeItem(__config.api.userAccessTokenName);
   },
 };
 
