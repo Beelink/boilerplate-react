@@ -1,34 +1,35 @@
 import { useContext, FunctionComponent } from "react";
 import { LangContext } from "@context/Lang";
-import { SelectPicker } from "rsuite";
+import { Dropdown } from "rsuite";
 import "./index.scoped.scss";
-import { ItemDataType } from "rsuite/esm/@types/common";
-import { ValueType } from "rsuite/esm/SelectPicker/SelectPicker";
 
 const LangChooser: FunctionComponent = () => {
-  const { lang, setLang } = useContext(LangContext);
+  const { lang, setLang, allLangs } = useContext(LangContext);
 
-  const handleChange = (event: ValueType) => {
-    setLang(event.toString());
+  const handleChange = (lang: string) => {
+    setLang(lang);
   };
-
-  const langs: ItemDataType[] = __config.lang.allLangs.map((l) => {
-    return {
-      label: l.toUpperCase(),
-      value: l,
-    };
-  });
 
   return (
     <div className="lang-chooser">
-      <SelectPicker
-        value={lang}
-        data={langs}
-        searchable={false}
-        cleanable={false}
-        onChange={handleChange}
-        appearance="subtle"
-      />
+      <Dropdown
+        title={
+          <span className="profile-menu__username">{lang.toUpperCase()}</span>
+        }
+        activeKey={lang}
+      >
+        {allLangs.map((item, itemIndex) => {
+          return (
+            <Dropdown.Item
+              key={itemIndex}
+              eventKey={item}
+              onClick={() => handleChange(item)}
+            >
+              {item.toUpperCase()}
+            </Dropdown.Item>
+          );
+        })}
+      </Dropdown>
     </div>
   );
 };

@@ -27,7 +27,7 @@ const ProfileMenu: FunctionComponent = () => {
       <Dropdown
         placement="bottomEnd"
         title={ <span className="profile-menu__username">{ user?.username }</span> }
-        icon={<ImageLoader src={user?.image} width={36} height={36} rounded />}
+        icon={<ImageLoader src={user?.image} width={24} height={24} rounded />}
         noCaret
       >
         <Dropdown.Item onClick={_goToProfile}>{t("profile")}</Dropdown.Item>
