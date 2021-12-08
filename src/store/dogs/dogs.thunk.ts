@@ -1,7 +1,7 @@
 import { fetchRandomDog } from "@api/dogs.api";
 import { Dispatch } from "redux";
 import { addDog, setIsLoading } from "./dogs.actionCreators";
-import { toast } from "material-react-toastify";
+import { toast } from "react-toastify";
 
 export const fetchAddRandomDogThunk = () => {
   return (dispatch: Dispatch) => {

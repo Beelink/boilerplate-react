@@ -6,7 +6,7 @@ import {
   setIsLoading,
   changeUserPassword,
 } from "./user.actionCreators";
-import { toast } from "material-react-toastify";
+import { toast } from "react-toastify";
 
 export const fetchUserSigninThunk = (email: string, password: string) => {
   return (dispatch: Dispatch) => {
