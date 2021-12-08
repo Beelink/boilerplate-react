@@ -18,10 +18,12 @@ export const fetchUserSigninThunk = (email: string, password: string) => {
         } else {
           dispatch(signin(response.data));
         }
-        dispatch(setIsLoading(false));
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((error: Error) => {
+        toast.error(error.message);
+      })
+      .finally(() => {
+        dispatch(setIsLoading(false));
       });
   };
 };
@@ -40,10 +42,12 @@ export const fetchUserSignupThunk = (
         } else {
           dispatch(signin(response.data));
         }
-        dispatch(setIsLoading(false));
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((error: Error) => {
+        toast.error(error.message);
+      })
+      .finally(() => {
+        dispatch(setIsLoading(false));
       });
   };
 };
@@ -58,10 +62,12 @@ export const fetchCurrentUserThunk = (token: string) => {
         } else {
           dispatch(signin(response.data));
         }
-        dispatch(setIsLoading(false));
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((error: Error) => {
+        toast.error(error.message);
+      })
+      .finally(() => {
+        dispatch(setIsLoading(false));
       });
   };
 };
@@ -81,10 +87,12 @@ export const fetchChangeUserPasswordThunk = (
           dispatch(changeUserPassword(newPassword));
           toast.success(response.message);
         }
-        dispatch(setIsLoading(false));
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((error: Error) => {
+        toast.error(error.message);
+      })
+      .finally(() => {
+        dispatch(setIsLoading(false));
       });
   };
 };

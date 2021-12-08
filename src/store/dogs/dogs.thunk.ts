@@ -1,18 +1,20 @@
 import { fetchRandomDog } from "@api/dogs.api";
-import Dog from "@entities/dog.entity";
 import { Dispatch } from "redux";
 import { addDog, setIsLoading } from "./dogs.actionCreators";
+import { toast } from "material-react-toastify";
 
 export const fetchAddRandomDogThunk = () => {
   return (dispatch: Dispatch) => {
     dispatch(setIsLoading(true));
     fetchRandomDog()
-      .then((dog: Dog) => {
-        dispatch(addDog(dog));
-        dispatch(setIsLoading(false));
+      .then((response) => {
+        dispatch(addDog(response.data));
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((error: Error) => {
+        toast.error(error.message);
+      })
+      .finally(() => {
+        dispatch(setIsLoading(false));
       });
   };
 };
